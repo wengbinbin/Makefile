@@ -1,3 +1,4 @@
+.PHONY:clean
 all:main.o foo.o
 	gcc -o simple main.o foo.o
 main.o:main.c
