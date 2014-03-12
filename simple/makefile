@@ -1,9 +1,18 @@
 .PHONY:clean
-all:main.o foo.o
-	gcc -o simple main.o foo.o
+CC=gcc
+RM=rm
+ELF=simple
+OBJS=main.o foo.o
+
+$(ELF):$(OBJS)
+	$(CC) -o $(ELF) $(OBJS)
+
+#all:main.o foo.o
+#	gcc -o simple main.o foo.o
 main.o:main.c
-	gcc -o main.o -c main.c
+	$(CC) -o main.o -c main.c
 foo.o:foo.c
-	gcc -o foo.o -c foo.c
+	$(CC) -o foo.o -c foo.c
 clean:
-	rm simple main.o foo.o
+#	$(RM) simple main.o foo.o
+	$(RM) $(ELF) $(OBJS)
